@@ -42,6 +42,7 @@ function ToDoList() {
     delTask.mutate(id)
   }
 
+  function handleEdit() {}
   return (
     <>
       <AddTodo />
@@ -51,6 +52,7 @@ function ToDoList() {
             <li>
               {x.tasks}{' '}
               <button onClick={() => handleDelete(x.id)}>Delete</button>
+              <button onClick={() => handleEdit}></button>
             </li>
           </ul>
         )

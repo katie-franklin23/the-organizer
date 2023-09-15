@@ -22,3 +22,14 @@ export async function deleteTask(id: number) {
 
   return response.body
 }
+
+interface EditTask {
+  id: number
+  updatedTask: string
+}
+
+export async function editTask({ id, updatedTask }: EditTask) {
+  const response = await request.patch(`/api/v1/todo/${id}`).send(updatedTask)
+
+  return response.body
+}

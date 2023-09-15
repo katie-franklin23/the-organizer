@@ -12,3 +12,10 @@ export function addTasks(newTasks: singleTask) {
 export function deleteTask(id: number) {
   return connection('todo').where('id', id).del()
 }
+
+export function editTask(id: number, updatedText: string) {
+  return connection('todo')
+    .where('id', id)
+    .update(updatedText)
+    .returning(['id', 'tasks'])
+}

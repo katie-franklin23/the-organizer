@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { addTask } from '../apis/to-do-api.tsx'
+import { useParams } from 'react-router-dom'
 
 function AddTodo() {
+  const { userID } = useParams()
+
   const [newTask, setNewTasks] = useState('')
 
   const queryClient = useQueryClient()
@@ -18,6 +21,7 @@ function AddTodo() {
 
     add.mutate({
       tasks: newTask,
+      user_id: Number(userID),
     })
     setNewTasks('')
   }
