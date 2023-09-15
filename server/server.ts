@@ -8,7 +8,7 @@ const server = express()
 
 server.use(express.json())
 
-server.use('/api/v1/weather', weatherRoutes)
+server.use('/api/v1/weather/', weatherRoutes)
 
 if (process.env.NODE_ENV === 'production') {
   server.use(express.static(Path.resolve('public')))
