@@ -4,6 +4,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Task } from '../../models/to-do-models.ts'
 import AddTodo from './AddTodo.tsx'
 import { useParams } from 'react-router-dom'
+import ToDoItemEdit from './ToDoListEdit.tsx'
 
 function ToDoList() {
   const { userID } = useParams()
@@ -50,9 +51,7 @@ function ToDoList() {
         return (
           <ul key={x.id}>
             <li>
-              {x.tasks}{' '}
-              <button onClick={() => handleDelete(x.id)}>Delete</button>
-              <button onClick={() => handleEdit}></button>
+              {x.tasks} <ToDoItemEdit id={x.id} tasks={x.tasks} />
             </li>
           </ul>
         )

@@ -2,14 +2,13 @@ import { useQuery } from '@tanstack/react-query'
 import { getToDoList, deleteTask, editTask } from '../apis/to-do-api.tsx'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { Task } from '../../models/to-do-models.ts'
-import AddTodo from './AddTodo.tsx'
 import { useParams } from 'react-router-dom'
-import { useState, ChangeEvent } from 'react'
+import { useState } from 'react'
 
-function ToDoItemEdit({ id, task }: Task) {
+function ToDoItemEdit({ id, tasks }: Task) {
   const { userID } = useParams()
   const [editing, setEditing] = useState(false)
-  const [updatedTask, setUpdatedTask] = useState(task)
+  const [updatedTask, setUpdatedTask] = useState(tasks)
 
   const {
     data: list,
@@ -28,7 +27,6 @@ function ToDoItemEdit({ id, task }: Task) {
   const edTask = useMutation(editTask, {
     onSuccess: async () => {
       queryClient.invalidateQueries(['tasks'])
-      setEditing(false)
     },
   })
 
@@ -49,32 +47,26 @@ function ToDoItemEdit({ id, task }: Task) {
   }
 
   function handleDelete() {
-    delTask.mutate({ id })
+    delTask.mutate(id)
   }
-
-  // Handling Edit functions
 
   const handleStartEdit = () => {
     setEditing(true)
   }
 
   const handleEndEdit = () => {
-    setEditing(false)
-    setUpdatedTask(updatedTask)
+    setTimeout(() => {
+      setEditing(false)
+      setUpdatedTask(tasks)
+    }, 10)
   }
 
   const handleEdit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     console.log(updatedTask)
-    edTask.mutate({ id, updatedTask })
-    // ^ To do
+    console.log(userID)
+    edTask.mutate({ id, update: updatedTask })
   }
-
-  // const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  //   event.preventDefault()
-
-  //   edTask.mutate({id, updatedTask: task})
-  // }
 
   return (
     <div>
@@ -85,10 +77,8 @@ function ToDoItemEdit({ id, task }: Task) {
             value={updatedTask}
             onChange={(e) => setUpdatedTask(e.target.value)}
           />
-
-          <button type="submit">Save</button>
-          <button type="button" onClick={handleEndEdit}>
-            Stop Editing
+          <button type="submit" onClick={() => handleEndEdit()}>
+            Save
           </button>
         </form>
       ) : (
@@ -99,32 +89,6 @@ function ToDoItemEdit({ id, task }: Task) {
       )}
     </div>
   )
-}
-
-{
-  /* {
-          editing ? (
-            <form onSubmit={handleEdit}>
-              <input
-                type="text"
-                value={updatedTask}
-                onChange={(e) => setUpdatedTask(e.target.value)}
-              />
-
-              <button type="submit">Save</button>
-              <button type="button" onClick={handleEndEdit}>
-                Stop Editing
-              </button>
-            </form>
-          ) : (
-            <ul key={x.id}>
-              <li>
-                {x.tasks}
-                <button onClick={() => handleDelete(x.id)}>Delete</button>
-                <button onClick={() => handleStartEdit()}>Edit Task</button>
-              </li>
-            </ul>
-          ) */
 }
 
 export default ToDoItemEdit

@@ -25,11 +25,13 @@ export async function deleteTask(id: number) {
 
 interface EditTask {
   id: number
-  updatedTask: string
+  update: string
 }
 
-export async function editTask({ id, updatedTask }: EditTask) {
-  const response = await request.patch(`/api/v1/todo/${id}`).send(updatedTask)
+export async function editTask({ id, update }: EditTask) {
+  const response = await request
+    .patch(`/api/v1/todo/${id}`)
+    .send({ tasks: update })
 
   return response.body
 }
