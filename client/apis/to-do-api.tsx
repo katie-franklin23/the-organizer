@@ -26,6 +26,7 @@ export async function deleteTask(id: number) {
 interface EditTask {
   id: number
   update: string
+  checked?: string
 }
 
 export async function editTask({ id, update }: EditTask) {
@@ -33,5 +34,17 @@ export async function editTask({ id, update }: EditTask) {
     .patch(`/api/v1/todo/${id}`)
     .send({ tasks: update })
 
+  return response.body
+}
+
+interface Checked {
+  id: number
+  checked: boolean
+}
+
+export async function editCheck({ id, checked }: Checked) {
+  const response = await request
+    .patch(`/api/v1/todo/patched/${id}`)
+    .send({ completed: checked })
   return response.body
 }

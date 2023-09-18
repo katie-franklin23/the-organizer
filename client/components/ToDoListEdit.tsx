@@ -1,11 +1,16 @@
 import { useQuery } from '@tanstack/react-query'
 import { getToDoList, deleteTask, editTask } from '../apis/to-do-api.tsx'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { Task } from '../../models/to-do-models.ts'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react'
 
-function ToDoItemEdit({ id, tasks }: Task) {
+interface Prop {
+  id: number
+  tasks: string
+  completed: boolean
+}
+
+function ToDoItemEdit({ id, tasks }: Prop) {
   const { userID } = useParams()
   const [editing, setEditing] = useState(false)
   const [updatedTask, setUpdatedTask] = useState(tasks)

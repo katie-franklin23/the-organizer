@@ -50,4 +50,15 @@ router.patch('/:id', async (req, res) => {
   }
 })
 
+router.patch('/patched/:id', async (req, res) => {
+  try {
+    const taskid = Number(req.params.id)
+    const checked = req.body
+    const callCheck = await db.checkTask(taskid, checked)
+    res.json(callCheck)
+  } catch (error) {
+    console.log(error)
+    res.sendStatus(500)
+  }
+})
 export default router
