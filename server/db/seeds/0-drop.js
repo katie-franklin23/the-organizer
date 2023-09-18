@@ -5,4 +5,5 @@ export async function seed(knex) {
   await knex('todo').del()
   await knex('users').del()
   await knex('weather').del()
+  await knex('steps').del()
 }

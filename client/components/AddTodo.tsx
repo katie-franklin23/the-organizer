@@ -50,14 +50,26 @@ function AddTodo() {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="task">Add Task</label>
+        <label
+          htmlFor="task"
+          className="flex p-2 gap-x-4 gap-y-4 justify-center"
+        >
+          Add Task
+        </label>
         <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
           placeholder="What needs to be done?"
           value={newTask}
           id="task"
           onChange={handleChange}
         />
-        <button type="submit">Add</button>
+        <button
+          type="submit"
+          className="flex p-1 gap-x-4 cursor-pointer hover:text-white hover:bg-green-500 transition rounded items-center justify-center"
+          style={{ margin: '0 auto' }}
+        >
+          Add
+        </button>
       </form>
     </>
   )

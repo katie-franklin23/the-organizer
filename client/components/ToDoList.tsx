@@ -46,28 +46,42 @@ function ToDoList() {
   }
 
   return (
-    <>
-      <AddTodo />
-      {list.map((x: Task) => {
-        return (
-          <ul
-            key={x.id}
-            style={{
-              textDecoration: x.completed ? 'line-through' : '',
-            }}
-          >
-            <input
-              type="checkbox"
-              checked={x.completed}
-              id={String(x.id)}
-              onChange={handleChange}
-            />
-            {x.tasks} {x.created}
-            <ToDoItemEdit id={x.id} tasks={x.tasks} completed={x.completed} />
-          </ul>
-        )
-      })}
-    </>
+    <div className="h-100 w-100 flex items-center justify-center bg-red-500 font-sans">
+      <div className="bg-white rounded">
+        <div className="mb-4">
+          <h1 className="flex text-grey-800 font-semibold justify-center p-2 m-2">
+            Your Todo List
+          </h1>
+          <div>
+            <AddTodo />
+            {list.map((x: Task) => {
+              return (
+                <ul
+                  key={x.id}
+                  style={{
+                    textDecoration: x.completed ? 'line-through' : '',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={x.completed}
+                    id={String(x.id)}
+                    onChange={handleChange}
+                    className="w-4 h-4 rounded mr-2 ml-1"
+                  />
+                  {x.tasks} {x.created}
+                  <ToDoItemEdit
+                    id={x.id}
+                    tasks={x.tasks}
+                    completed={x.completed}
+                  />
+                </ul>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
