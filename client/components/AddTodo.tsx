@@ -7,6 +7,7 @@ function AddTodo() {
   const { userID } = useParams()
   const [timestamp, setTimestamp] = useState('')
   const [newTask, setNewTasks] = useState('')
+
   const queryClient = useQueryClient()
 
   const add = useMutation(addTask, {
@@ -24,6 +25,7 @@ function AddTodo() {
       minute: '2-digit',
       second: '2-digit',
     }
+
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
 
@@ -36,6 +38,8 @@ function AddTodo() {
       user_id: Number(userID),
       created: timestamp,
     })
+
+    console.log(timestamp)
     setNewTasks('')
   }
 

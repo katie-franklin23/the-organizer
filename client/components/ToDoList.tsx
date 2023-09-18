@@ -21,8 +21,6 @@ function ToDoList() {
     },
   })
 
-  /********************* Checked box Working*******************/
-
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
     if (event.target.checked) {
       checkedBox.mutate({ id: Number(event.currentTarget.id), checked: true })
@@ -52,21 +50,20 @@ function ToDoList() {
       <AddTodo />
       {list.map((x: Task) => {
         return (
-          <ul key={x.id}>
-            <li
-              style={{
-                textDecoration: x.completed ? 'line-through' : '',
-              }}
-            >
-              <input
-                type="checkbox"
-                checked={x.completed}
-                id={String(x.id)}
-                onChange={handleChange}
-              />
-              {x.tasks} {x.created}
-              <ToDoItemEdit id={x.id} tasks={x.tasks} completed={x.completed} />
-            </li>
+          <ul
+            key={x.id}
+            style={{
+              textDecoration: x.completed ? 'line-through' : '',
+            }}
+          >
+            <input
+              type="checkbox"
+              checked={x.completed}
+              id={String(x.id)}
+              onChange={handleChange}
+            />
+            {x.tasks} {x.created}
+            <ToDoItemEdit id={x.id} tasks={x.tasks} completed={x.completed} />
           </ul>
         )
       })}
