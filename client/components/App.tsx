@@ -1,4 +1,7 @@
 import { Link, Outlet } from 'react-router-dom'
+import Weather from './Weather'
+import Animation from './Animation'
+// import HomePage from './HomePage'
 
 function App() {
   return (
@@ -13,6 +16,8 @@ function App() {
         </nav>
         <main>
           <Outlet />
+          <Weather />
+          <Animation />
         </main>
       </div>
     </>
