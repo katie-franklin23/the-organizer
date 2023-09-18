@@ -6,8 +6,7 @@ import Animation from './Animation'
 function App() {
   return (
     <>
-      <div className="app">
-        {/* <h1 className="text-red-500">Fullstack Boilerplate - with Fruits!</h1> */}
+      <div className="bg-gray-200 min-h-screen flex flex-col ">
         <nav>
           <ul>
             <li>
