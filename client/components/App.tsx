@@ -2,6 +2,7 @@ import { Link, Outlet } from 'react-router-dom'
 import Weather from './Weather'
 import Animation from './Animation'
 import Theme from './Theme'
+import Stopwatch from './Timer'
 // import HomePage from './HomePage'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Outlet />
             <Weather />
             <Animation />
+            <Stopwatch />
           </main>
         </div>
       </Theme>
