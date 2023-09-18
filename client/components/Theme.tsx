@@ -1,5 +1,5 @@
 import { useState, ReactNode } from 'react'
-import './Theme.css' // Import your global styles here
+import '../styles/theme.css'
 
 interface ThemeProps {
   children: ReactNode
@@ -14,7 +14,7 @@ const Theme = (props: ThemeProps) => {
 
   return (
     <div className={`theme ${theme}`}>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button onClick={toggleTheme}>🌙</button>
       {props.children}
     </div>
   )
