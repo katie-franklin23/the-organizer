@@ -82,9 +82,8 @@ export default function StepCounter() {
           placeholder="0"
           id="stepCount"
           type="number"
-          value={stepsCount}
+          value={stepsCount.toString()}
           onChange={handleChange}
-          pattern="[0-9]*"
         />
         <button type="submit">Submit</button>
       </form>
