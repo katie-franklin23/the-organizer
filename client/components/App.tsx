@@ -1,4 +1,5 @@
 import { Link, Outlet } from 'react-router-dom'
+import Calendar from './Calendar'
 // import HomePage from './HomePage'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
           <ul>
             <li>
               <Link to="/">Home</Link>
+              <Calendar />
             </li>
           </ul>
         </nav>
