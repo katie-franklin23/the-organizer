@@ -1,63 +1,69 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import Confetti from 'react-confetti'
+import '../styles/stopwatch.css' // Import the CSS file
 
-const Timer = () => {
-  const [hours, setHours] = useState<number>(0)
-  const [minutes, setMinutes] = useState<number>(0)
-  const [seconds, setSeconds] = useState<number>(0)
-  const [isActive, setIsActive] = useState<boolean>(false)
+function Stopwatch() {
+  const [isRunning, setIsRunning] = useState<boolean>(false)
+  const [time, setTime] = useState<number>(0)
+  const timerRef = useRef<number | null>(null)
+  const [showConfetti, setShowConfetti] = useState<boolean>(false)
 
   useEffect(() => {
-    let interval: NodeJS.Timeout | null = null
-
-    if (isActive) {
-      interval = setInterval(() => {
-        if (seconds < 59) {
-          setSeconds(seconds + 1)
-        } else if (minutes < 59) {
-          setMinutes(minutes + 1)
-          setSeconds(0)
-        } else {
-          setHours(hours + 1)
-          setMinutes(0)
-          setSeconds(0)
-        }
-      }, 1000)
-    } else if (interval) {
-      clearInterval(interval)
+    if (time === 10000) {
+      setShowConfetti(true)
+      setTimeout(() => {
+        setShowConfetti(false)
+      }, 5000)
+    } else {
+      setShowConfetti(false)
     }
+  }, [time])
 
-    return () => {
-      if (interval) {
-        clearInterval(interval)
-      }
-    }
-  }, [isActive, hours, minutes, seconds])
+  const formatTime = (milliseconds: number): string => {
+    const minutes = Math.floor(milliseconds / 60000)
+    const seconds = Math.floor((milliseconds % 60000) / 1000)
+    const msecs = (milliseconds % 1000) / 10
 
-  const handleStartPauseClick = () => {
-    setIsActive(!isActive)
+    const formattedMinutes = minutes.toString().padStart(2, '0')
+    const formattedSeconds = seconds.toString().padStart(2, '0')
+    const formattedMilliseconds = msecs.toString().padStart(2, '0')
+
+    return `${formattedMinutes}:${formattedSeconds}:${formattedMilliseconds}`
   }
 
-  const handleResetClick = () => {
-    setHours(0)
-    setMinutes(0)
-    setSeconds(0)
-    setIsActive(false)
+  const toggleTimer = () => {
+    if (isRunning) {
+      setIsRunning(false)
+      clearInterval(timerRef.current!)
+    } else {
+      setIsRunning(true)
+      timerRef.current = window.setInterval(() => {
+        setTime((prevTime) => prevTime + 10)
+      }, 10)
+    }
+  }
+
+  const resetTimer = () => {
+    setIsRunning(false)
+    setTime(0)
+    clearInterval(timerRef.current!)
+    setShowConfetti(false)
   }
 
   return (
-    <div>
-      <div className="timer">
-        {String(hours).padStart(2, '0')}:{String(minutes).padStart(2, '0')}:
-        {String(seconds).padStart(2, '0')}
-      </div>
-      <div className="buttons">
-        <button onClick={handleStartPauseClick}>
-          {isActive ? 'Pause' : 'Start'}
+    <div className="stopwatch-container">
+      {showConfetti && <Confetti />}
+      <div className="time-display">{formatTime(time)}</div>
+      <div className="buttons-container">
+        <button className="buttons" onClick={toggleTimer}>
+          {isRunning ? 'Pause' : 'Start'}
         </button>
-        <button onClick={handleResetClick}>Reset</button>
+        <button className="buttons" onClick={resetTimer}>
+          Reset
+        </button>
       </div>
     </div>
   )
 }
 
-export default Timer
+export default Stopwatch
