@@ -17,7 +17,7 @@ function App() {
         <main>
           <Outlet />
           <Weather />
-          <Animation />
+          {/* <Animation /> */}
         </main>
       </div>
     </>
