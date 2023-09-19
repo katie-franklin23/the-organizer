@@ -35,7 +35,6 @@
 //       /> */
 // }
 
-import React from 'react'
 import { getWeather } from '../apis/weatherApi.ts'
 import { useQuery } from '@tanstack/react-query'
 import '../styles/main.css'
