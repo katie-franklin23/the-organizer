@@ -1,0 +1,18 @@
+/* Light theme */
+.theme.light {
+  background-color: white;
+  color: black;
+}
+
+/* Dark theme */
+.theme.dark {
+  background-color: black;
+  color: white;
+}
+
+/* Additional dark mode styles for specific elements if needed */
+.theme.dark button {
+  /* Styling for buttons in dark mode */
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
