@@ -4,6 +4,8 @@ import Stopwatch from './Timer'
 import PresentCycle from './PresentCycle'
 import Budget from './Budget'
 import Animation from './Animation'
+import Weather from './Weather'
+
 function Dashboard() {
   return (
     <div className="flex h-screen">
@@ -24,6 +26,7 @@ function Dashboard() {
             <Budget />
           </div>
           <div>{/* <Animation /> */}</div>
+          <Weather />
         </div>
       </div>
     </div>

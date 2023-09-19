@@ -45,6 +45,3 @@ export interface Location {
   localtime_epoch: number
   localtime: string
 }
-
-// Celcius symbol °C
-// fahrenheit symbol °F

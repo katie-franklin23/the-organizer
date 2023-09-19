@@ -1,57 +1,26 @@
-// import { getWeather } from '../apis/weatherApi.ts'
-// import { useQuery } from '@tanstack/react-query'
-// import '../styles/main.css'
-
-// export default function Weather() {
-//   const {
-//     data: weather,
-//     isError,
-//     isLoading,
-//   } = useQuery(['weather'], () => getWeather('Wellington'))
-
-//   if (isError) {
-//     return <div className="weather-container">Weather</div>
-//   }
-//   if (!weather || isLoading) {
-//     return <div className="weather-container">What is the weather like?</div>
-//   }
-
-//   return (
-//     <div className="weather-container">
-//       <h2 className="weather-heading">Weather in {weather.location.name}</h2>
-//       <p className="weather-text">Date & Time: {weather.location.localtime}</p>
-//       <p className="weather-text">Temperature: {weather.current.temp_c}°C</p>
-//       <p className="weather-text">
-//         Condition: {weather.current.condition.text}
-//       </p>
-//     </div>
-//   )
-// }
-
-// {
-//   /* <img
-//         src={weather.current.condition.icon}
-//         alt={weather.current.condition.text}
-//       /> */
-// }
-
 import { getWeather } from '../apis/weatherApi.ts'
 import { useQuery } from '@tanstack/react-query'
 import '../styles/main.css'
 
 export default function Weather() {
+  //creating a const here to store the city name from your new input field
+  // const [city, setCity] = useState('Wellington')
+
   const {
     data: weather,
     isError,
     isLoading,
-  } = useQuery(['weather'], () => getWeather('Wellington'))
+  } = useQuery(['weather'], () => getWeather('Wellington')) //pass city
 
   if (isError) {
-    return <div className="weather-container">Weather</div>
+    return <div className="weather-container">Error retrieving the weather</div>
   }
   if (!weather || isLoading) {
-    return <div className="weather-container">What is the weather like?</div>
+    return <div className="weather-container">Weather is loading..</div>
   }
+
+  //handleCitySubmit function here using setCity to update the city name
+  //In case the query doesn't refresh, you can use queryClient.invalidateQueries('weather') to force a refresh
 
   // Extract relevant data from the weather API response
   const {
@@ -74,6 +43,7 @@ export default function Weather() {
 
   return (
     <div className="wrapper">
+      {/* add an input field and a form handler that handles the city submission*/}
       <div className="widget-container">
         <div className="top-left">
           <h1 className="city" id="city">
