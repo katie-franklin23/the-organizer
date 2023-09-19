@@ -1,0 +1,21 @@
+/* tailwind.css */
+
+/* Modern button styling */
+.button-style {
+  @apply inline-block px-4 py-2 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md;
+}
+
+/* Modern background and border styles */
+.calendar-container {
+  @apply bg-white rounded-lg shadow-lg;
+}
+
+/* Modern label style */
+.rbc-toolbar-label {
+  @apply font-semibold text-lg text-gray-800;
+}
+
+/* Modern calendar header button styles */
+.rbc-btn {
+  @apply inline-block px-2 py-1 text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md;
+}

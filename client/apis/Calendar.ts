@@ -13,7 +13,7 @@ interface EventData {
 export async function getEvents(): Promise<EventModel[]> {
   // eslint-disable-next-line no-useless-catch
   try {
-    const response = await request.get(`${baseURL}/events`); // Assuming your backend has an '/events' route
+    const response = await request.get(`${baseURL}/events`); 
     const eventData: EventData[] = response.body;
 
     const events = eventData.map((event) => ({
