@@ -10,10 +10,8 @@ import HomePage from './client/components/HomePage.tsx'
 import StepCounter from './client/components/StepCounter.tsx'
 import Budget from './client/components/Budget.tsx'
 
-import Sidebar from './client/components/Sidebar.tsx'
-
 import PresentCycle from './client/components/PresentCycle.tsx'
-
+import Dashboard from './client/components/Dashboard.tsx'
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>
@@ -24,11 +22,8 @@ export const routes = createRoutesFromElements(
 
     <Route path="/budget/:userID" element={<Budget />} />
 
-
-    <Route path="/dashboard" element={<Sidebar />} />
+    <Route path="/dashboard/:userID" element={<Dashboard />} />
     <Route path="/gift" element={<PresentCycle />} />
-
-
   </Route>,
 )
 
