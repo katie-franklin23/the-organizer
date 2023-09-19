@@ -43,7 +43,7 @@ function PresentCycle() {
           <img
             src={presents[currentPresentIndex].image_url}
             alt={presents[currentPresentIndex].present_name}
-            className="rounded-lg shadow-lg mx-auto mb-4 max-w-md max-h-50"
+            className="rounded-lg shadow-lg mx-auto mb-4 max-w-md max-h-40"
           />
           <h3 className="text-center text-2xl font-bold mb-4">
             {presents[currentPresentIndex].present_name}
