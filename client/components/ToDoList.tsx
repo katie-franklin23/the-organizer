@@ -46,8 +46,8 @@ function ToDoList() {
   }
 
   return (
-    <div className="h-100 w-100 flex items-center justify-center bg-red-500 font-sans">
-      <div className="bg-white rounded">
+    <div className="h-100 w-100 flex items-center justify-center font-sans bg-slate-300 rounded-lg">
+      <div className="bg-transparent rounded">
         <div className="mb-4">
           <h1 className="flex text-grey-800 font-semibold justify-center p-2 m-2">
             Your Todo List
