@@ -4,7 +4,7 @@
  */
 export async function seed(knex) {
   // Deletes ALL existing entries
-  await knex('calendar').del()
+
   await knex('calendar').insert([
     {
       id: 1,

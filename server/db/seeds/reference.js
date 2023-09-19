@@ -4,7 +4,6 @@
  */
 export async function seed(knex) {
   // Deletes ALL existing entries
-  await knex('reference').del()
   await knex('reference').insert([
     {
       id: 1,
