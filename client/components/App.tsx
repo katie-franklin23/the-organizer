@@ -8,7 +8,6 @@ import Stopwatch from './Timer'
 function App() {
   return (
     <>
-
       <Theme>
         <div className="app">
           {/* <h1 className="text-red-500">Fullstack Boilerplate - with Fruits!</h1> */}
@@ -22,12 +21,11 @@ function App() {
           <main>
             <Outlet />
             <Weather />
-            <Animation />
+            {/* <Animation /> */}
             <Stopwatch />
           </main>
         </div>
       </Theme>
-
     </>
   )
 }
