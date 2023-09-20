@@ -35,16 +35,26 @@
 //       /> */
 // }
 
+import { useState } from 'react'
 import { getWeather } from '../apis/weatherApi.ts'
 import { useQuery } from '@tanstack/react-query'
 import '../styles/main.css'
 
 export default function Weather() {
+  const [city, setCity] = useState('Wellington')
+
   const {
     data: weather,
     isError,
     isLoading,
-  } = useQuery(['weather'], () => getWeather('Wellington'))
+    refetch,
+  } = useQuery(['weather', city], () => getWeather(city))
+
+  // Handle form submission
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    refetch()
+  }
 
   if (isError) {
     return <div className="weather-container">Weather</div>
@@ -53,7 +63,6 @@ export default function Weather() {
     return <div className="weather-container">What is the weather like?</div>
   }
 
-  // Extract relevant data from the weather API response
   const {
     location,
     current: {
@@ -75,6 +84,17 @@ export default function Weather() {
   return (
     <div className="wrapper">
       <div className="widget-container">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter city name"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+
+          <button type="submit">Submit</button>
+        </form>
+
         <div className="top-left">
           <h1 className="city" id="city">
             {location.name}

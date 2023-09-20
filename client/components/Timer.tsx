@@ -53,7 +53,7 @@ function Stopwatch() {
   return (
     <div className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-sm rounded-xl">
       {showConfetti && <Confetti />}
-      <div className="text-8xl font-bold uppercase text-black text-center">
+      <div className="text-8xl  font-bold uppercase text-black text-center">
         {formatTime(time)}
       </div>
       <div className="flex justify-center gap-3">
