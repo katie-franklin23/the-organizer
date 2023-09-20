@@ -4,12 +4,10 @@
  */
 
 export function up(knex) {
-  return knex.schema.createTable('todo', (table) => {
+  return knex.schema.createTable('steps', (table) => {
     table.increments('id').primary()
     table.integer('user_id')
-    table.string('tasks')
-    table.string('created')
-    table.boolean('completed')
+    table.string('steps')
   })
 }
 
@@ -19,5 +17,5 @@ export function up(knex) {
  */
 
 export function down(knex) {
-  return knex.schema.dropTable('todo')
+  return knex.schema.dropTable('steps')
 }
