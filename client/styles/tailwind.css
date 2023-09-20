@@ -1,21 +1,13 @@
-/* tailwind.css */
+/* Import your preferred fonts */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
 
-/* Modern button styling */
-.button-style {
-  @apply inline-block px-4 py-2 leading-none text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md;
+/* Reset styles for the calendar */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f5f7;
 }
 
-/* Modern background and border styles */
-.calendar-container {
-  @apply bg-white rounded-lg shadow-lg;
-}
-
-/* Modern label style */
-.rbc-toolbar-label {
-  @apply font-semibold text-lg text-gray-800;
-}
-
-/* Modern calendar header button styles */
-.rbc-btn {
-  @apply inline-block px-2 py-1 text-white bg-blue-500 hover:bg-blue-600 rounded-lg shadow-md;
-}
+/* Rest of your CSS styles */
+/* ... */
