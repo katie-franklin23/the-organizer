@@ -19,7 +19,7 @@ function HomePage() {
             d="M9 5l7 7-7 7"
           />
         </svg>
-        <Link to="/dashboard">
+        <Link to="/dashboard/1">
           <span>Go to your Dashboard</span>
         </Link>
       </button>

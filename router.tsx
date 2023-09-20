@@ -12,6 +12,7 @@ import Budget from './client/components/Budget.tsx'
 
 import PresentCycle from './client/components/PresentCycle.tsx'
 import Dashboard from './client/components/Dashboard.tsx'
+import Weather from './client/components/Weather.tsx'
 
 export const routes = createRoutesFromElements(
   <Route path="/" element={<App />}>

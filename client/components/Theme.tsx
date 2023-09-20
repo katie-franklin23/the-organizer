@@ -1,5 +1,6 @@
 import { useState, ReactNode } from 'react'
 import '../styles/theme.css'
+import Draggable from 'react-draggable'
 
 interface ThemeProps {
   children: ReactNode
@@ -13,10 +14,12 @@ const Theme = (props: ThemeProps) => {
   }
 
   return (
-    <div className={`theme ${theme}`}>
-      <button onClick={toggleTheme}>🌙</button>
-      {props.children}
-    </div>
+    <Draggable>
+      <div className={`theme ${theme}`}>
+        <button onClick={toggleTheme}>🌙</button>
+        {props.children}
+      </div>
+    </Draggable>
   )
 }
 

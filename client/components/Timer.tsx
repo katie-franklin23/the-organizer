@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import Confetti from 'react-confetti'
-import '../styles/stopwatch.css' // Import the CSS file
+// import '../styles/stopwatch.css'
 
 function Stopwatch() {
   const [isRunning, setIsRunning] = useState<boolean>(false)
@@ -51,14 +51,24 @@ function Stopwatch() {
   }
 
   return (
-    <div className="stopwatch-container">
+    <div className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-sm rounded-xl">
       {showConfetti && <Confetti />}
-      <div className="time-display">{formatTime(time)}</div>
-      <div className="buttons-container">
-        <button className="buttons" onClick={toggleTimer}>
+      <div className="text-8xl  font-bold uppercase text-black text-center">
+        {formatTime(time)}
+      </div>
+      <div className="flex justify-center gap-3">
+        <button
+          className={`bg-blue-500 text-white px-4 py-2 rounded-lg transition duration-300 hover:bg-blue-600  ${
+            isRunning ? 'bg-red-500 hover:bg-red-600' : ''
+          }`}
+          onClick={toggleTimer}
+        >
           {isRunning ? 'Pause' : 'Start'}
         </button>
-        <button className="buttons" onClick={resetTimer}>
+        <button
+          className="bg-gray-300 text-gray-600 px-4 py-2 rounded-lg transition duration-300 hover:bg-gray-400"
+          onClick={resetTimer}
+        >
           Reset
         </button>
       </div>
