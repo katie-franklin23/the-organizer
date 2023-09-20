@@ -3,11 +3,9 @@ import ToDoList from './ToDoList'
 import Stopwatch from './Timer'
 import PresentCycle from './PresentCycle'
 import Budget from './Budget'
-// import Weather from './Weather'
 import Draggable from 'react-draggable'
-import Theme from './Theme'
-import Animation from './Animation'
 import Weather from './Weather'
+import Calendar from './Calendar'
 
 function Dashboard() {
   return (
@@ -102,7 +100,7 @@ function Dashboard() {
           </div>
         </div>
 
-        <div className="px-6 pt-6 2xl:container">
+        <div className="flex justify-self-auto px-6 pt-6 2xl:container">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div className="md:col-span-2 lg:col-span-1">
               <ToDoList />
@@ -114,26 +112,15 @@ function Dashboard() {
               <PresentCycle />
             </div>
             <Draggable>
-              <div className="md:col-span-2 lg:col-span-1">
+              <div className="md:col-span-2 lg:col-span-2">
                 <Stopwatch />
               </div>
             </Draggable>
           </div>
 
-          <div className="md:col-span-2 lg:col-span-1">
-            <Weather />
+          <div className=" md:col-span-1 lg:col-span-1">
+            <Calendar />
           </div>
-<<<<<<< HEAD
-=======
-          <div className="col-span-1">
-            <PresentCycle />
-          </div>
-          <div className="col-span-1">
-            <Budget />
-          </div>
-          <div>{/* <Animation /> */}</div>
-          <Weather />
->>>>>>> main
         </div>
       </div>
     </>
