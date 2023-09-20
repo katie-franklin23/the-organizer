@@ -116,6 +116,11 @@ function Dashboard() {
                 <Stopwatch />
               </div>
             </Draggable>
+            <Draggable>
+              <div className=" md:col-span-1 lg:col-span-1">
+                <Weather />
+              </div>
+            </Draggable>
           </div>
 
           <div className=" md:col-span-1 lg:col-span-1">
