@@ -81,30 +81,30 @@ function ToDoItemEdit({ id, tasks }: Prop) {
             type="text"
             value={updatedTask}
             onChange={(e) => setUpdatedTask(e.target.value)}
-            className="shadow appearance-none border rounded w-full py-2 px-3 mb-4 text-grey-darker text-center bg-yellow-100"
+            className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-grey-darker"
           />
           <div className="text-center">
             <button
               type="submit"
               onClick={() => handleEndEdit()}
-              className="ml-1 mr-2 bg-green-500 hover:bg-green-300 text-white mb-0 mt-0 py-0 px-0 rounded transition mx-auto"
+              className="flex text-white bg-green-500 hover:bg-green-300 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-1 mr-auto mb-2 mt-2 ml-auto items-center justify-center"
             >
               Save
             </button>
           </div>
         </form>
       ) : (
-        <li className="flex justify-between items-center mb-4">
+        <li className="flex justify-center items-center mb-4">
           <div>
             <button
               onClick={() => handleStartEdit()}
-              className="ml-1 mr-2 bg-blue-500 hover:bg-blue-300 text-white mt-2 py-0 px-0 rounded transition"
+              className="text-white bg-blue-500 hover:bg-blue-300 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-1 mr-auto mb-2 mt-2 ml-auto items-center justify-center"
             >
               Edit Task
             </button>
             <button
               onClick={() => handleDelete()}
-              className="ml-1 mr-2 bg-red-500 hover:bg-red-300 text-white mt-2 py-0 px-0 rounded transition"
+              className="text-white bg-red-500 hover:bg-red-300 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-1 mr-auto mb-2 mt-2 ml-auto items-center justify-center"
             >
               Delete
             </button>

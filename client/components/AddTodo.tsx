@@ -65,8 +65,7 @@ function AddTodo() {
         />
         <button
           type="submit"
-          className="flex p-1 gap-x-4 cursor-pointer hover:text-white hover:bg-green-500 transition rounded items-center justify-center"
-          style={{ margin: '0 auto' }}
+          className="flex text-white bg-gray-800 hover:bg-gray-400 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-full text-sm px-5 py-2.5 mr-auto mb-2 mt-2 ml-auto dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 items-center justify-center"
         >
           Add
         </button>

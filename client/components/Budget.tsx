@@ -98,7 +98,6 @@ export default function Budget() {
     <>
       <div className="flex flex-col gap-y-3 lg:gap-y-5 p-4 md:p-5 bg-white border shadow-sm rounded-xl ">
         <div className="inline-flex justify-center items-center">
-          <span className="w-2 h-2 inline-block bg-gray-500 rounded-full mr-2"></span>
           <span className="text-xs font-semibold uppercase text-gray-600 dark:text-gray-400">
             Budgets
           </span>

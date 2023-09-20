@@ -1,12 +1,11 @@
 import {
   AiOutlineCaretUp,
-  AiOutlineCaretRight,
+  AiOutlineCaretDown,
   AiFillSchedule,
   AiOutlineBars,
   AiOutlineLineChart,
   AiOutlineControl,
   AiOutlineTeam,
-  AiOutlineCaretDown,
 } from 'react-icons/ai'
 import { useState } from 'react'
 
@@ -28,7 +27,7 @@ function SideBar() {
   return (
     <aside
       className={`fixed z-10 top-0 h-screen ${
-        open ? 'w-1/5' : 'w-16'
+        open ? 'w-1/5 border-r' : 'w-16'
       } md:w-4/12 lg:w-1/4 xl:w-1/5 2xl:w-1/6 transition-all duration-300 ease-in-out bg-white`}
     >
       <div className="flex items-center justify-between px-6 py-4">
@@ -64,13 +63,12 @@ function SideBar() {
           </div>
           <ul className="mt-8 space-y-2 tracking-wide">
             {iconList.map((item, index) => (
-              <li
-                className="hover:bg-blue-500 transition hover:text-white"
-                key={index}
-              >
+              <li className="hover:bg-blue-500 transition" key={index}>
                 <button className="px-4 py-3 flex items-center space-x-4 rounded-xl">
-                  <item.Icon className="-ml-1 h-6 w-6" />
-                  <span className="font-medium text-gray-600">{item.text}</span>
+                  <span className="hover:text-white flex ml-1">
+                    <item.Icon className="ml-2 h-6 w-6 mr-2" />
+                    {item.text}
+                  </span>
                 </button>
               </li>
             ))}
