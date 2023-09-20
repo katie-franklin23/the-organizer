@@ -24,7 +24,6 @@ body {
 .top-left {
   height: 60%;
   width: 50%;
-  /*   background-color:red; */
   padding: 55px 0 0 70px;
   display: inline-block;
 }
@@ -32,7 +31,6 @@ body {
 .top-right {
   height: 60%;
   width: 50%;
-  /*   background-color: blue; */
   float: right;
   padding: 55px 0 0 0;
 }
@@ -40,7 +38,6 @@ body {
 .bottom-left {
   height: 40%;
   width: 45%;
-  /*   background-color:orange; */
   float: left;
   margin: 0;
   padding: 40px 0 0 50px;
@@ -49,7 +46,6 @@ body {
 .bottom-right {
   height: 40%;
   width: 55%;
-  /*   background-color: brown; */
   float: right;
   padding: 25px 0 0 60px;
 }
@@ -181,22 +177,6 @@ p {
   font-size: 17px;
   font-weight: 400;
   margin-left: 40px;
-}
-
-.watermark-link {
-  text-decoration: none;
-  color: #b0bec5;
-}
-
-.watermark-link:hover {
-  color: white;
-  text-decoration: none;
-}
-
-.watermark {
-  margin-top: 10px;
-  text-align: center;
-  font-weight: 400;
 }
 
 /* .weather-container {

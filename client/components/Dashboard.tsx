@@ -123,6 +123,17 @@ function Dashboard() {
           <div className="md:col-span-2 lg:col-span-1">
             <Weather />
           </div>
+<<<<<<< HEAD
+=======
+          <div className="col-span-1">
+            <PresentCycle />
+          </div>
+          <div className="col-span-1">
+            <Budget />
+          </div>
+          <div>{/* <Animation /> */}</div>
+          <Weather />
+>>>>>>> main
         </div>
       </div>
     </>

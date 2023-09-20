@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import { getWeather } from '../apis/weatherApi.ts'
 // import { useQuery } from '@tanstack/react-query'
 // import '../styles/main.css'
@@ -36,17 +37,25 @@
 // }
 
 import { useState } from 'react'
+=======
+>>>>>>> main
 import { getWeather } from '../apis/weatherApi.ts'
 import { useQuery } from '@tanstack/react-query'
 import '../styles/main.css'
 
 export default function Weather() {
+<<<<<<< HEAD
   const [city, setCity] = useState('Wellington')
+=======
+  //creating a const here to store the city name from your new input field
+  // const [city, setCity] = useState('Wellington')
+>>>>>>> main
 
   const {
     data: weather,
     isError,
     isLoading,
+<<<<<<< HEAD
     refetch,
   } = useQuery(['weather', city], () => getWeather(city))
 
@@ -55,14 +64,24 @@ export default function Weather() {
     e.preventDefault()
     refetch()
   }
+=======
+  } = useQuery(['weather'], () => getWeather('Wellington')) //pass city
+>>>>>>> main
 
   if (isError) {
-    return <div className="weather-container">Weather</div>
+    return <div className="weather-container">Error retrieving the weather</div>
   }
   if (!weather || isLoading) {
-    return <div className="weather-container">What is the weather like?</div>
+    return <div className="weather-container">Weather is loading..</div>
   }
 
+<<<<<<< HEAD
+=======
+  //handleCitySubmit function here using setCity to update the city name
+  //In case the query doesn't refresh, you can use queryClient.invalidateQueries('weather') to force a refresh
+
+  // Extract relevant data from the weather API response
+>>>>>>> main
   const {
     location,
     current: {
@@ -83,6 +102,7 @@ export default function Weather() {
 
   return (
     <div className="wrapper">
+      {/* add an input field and a form handler that handles the city submission*/}
       <div className="widget-container">
         <form onSubmit={handleSubmit}>
           <input
