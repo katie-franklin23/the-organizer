@@ -17,6 +17,11 @@ function Dashboard() {
             <h5 hidden className="text-2xl text-gray-600 font-medium lg:block">
               Dashboard
             </h5>
+            <img
+              src="/images/logo.png"
+              alt="Logo"
+              className="w-10 h-10 rounded-xl"
+            />
             <button className="w-12 h-16 -mr-2 border-r lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
